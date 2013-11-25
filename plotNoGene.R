@@ -10,7 +10,7 @@ table <- read.table('data/AgeInverse_lmerCellMeans_reducedCorrPercentileContiguo
  # set names
  # levels(table$Subcortical)
  #[1] "Accum"   "Caudate" "Putamen"
- levels(table$Subcortical)<-c("Nucleus Accumbens", "Caudate", "Putanmen" )
+ levels(table$Subcortical)<-c("Nucleus Accumbens", "Caudate", "Putamen" )
 
  # > levels(table$PFC)
  # [1] "Dorsal_ACC"           "InferiorFrontalGyrus" "Lateral_OFC"          "Medial_OFC"           "MiddleFrontalGyrus" 

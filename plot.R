@@ -6,7 +6,7 @@ colors <- read.table('colors.txt',fill=T,header=T,stringsAsFactors=F)
 library(ggplot2)
 
 # know of 4 files each describing variation across alleles of a gene
-for(gene in c('MAOA','CompositeRecoded','COMT')) { #'DAT1',
+for(gene in c('MAOA','CompositeRecoded','DAT1','COMT')) { 
    cat(gene,"\n")
  # get this gene's color spectrum from preloaded text file
  # remove empty -- overengeerning? ggplot will only ask for as many colors as
@@ -22,7 +22,7 @@ for(gene in c('MAOA','CompositeRecoded','COMT')) { #'DAT1',
  # set names
  # levels(table$Subcortical)
  #[1] "Accum"   "Caudate" "Putamen"
- levels(table$Subcortical)<-c("Nucleus Accumbens", "Caudate", "Putanmen" )
+ levels(table$Subcortical)<-c("Nucleus Accumbens", "Caudate", "Putamen" )
 
  # > levels(table$PFC)
  # [1] "Dorsal_ACC"           "InferiorFrontalGyrus" "Lateral_OFC"          "Medial_OFC"           "MiddleFrontalGyrus" 
@@ -40,13 +40,13 @@ for(gene in c('MAOA','CompositeRecoded','COMT')) { #'DAT1',
  # "gene" at the for loop level is "COMT", "DAT1", etc
  # the "gene" as dataframe column name (eg table$COMT) is the gene type (e.g. Va/Met)
  if(gene == 'COMT' ) {
-   levels(table[,gene])<-c("Val/Val" ,"Val/Met", "Met/Met")
- } else if(gene == 'MOAO'){
-   levels(table[,gene])<-c("4R/4R" ,"3R/4R", "3R/3R")
+   levels(table[,gene])<-rev(c("Val/Val" ,"Val/Met", "Met/Met"))
+ } else if(gene == 'MAOA'){
+   levels(table[,gene])<-rev(c("4R/4R" ,"3R/4R", "3R/3R"))
  } else if(gene == 'DAT1'){
-   levels(table[,gene])<-c("10R/10R" ,"9R")
+   levels(table[,gene])<-rev(c("10R/10R" ,"9R"))
  }else{ #COMPOSITE
-   levels(table[,gene])<-c("0.5" ,"1.0","1.5","2.0","2.5","3.0")
+   levels(table[,gene])<-rev(c("0.5" ,"1.0","1.5","2.0","2.5","3.0"))
  }
 
  #levels(table[,genename]) <- c(1,2,3) # set the level names to something useful
