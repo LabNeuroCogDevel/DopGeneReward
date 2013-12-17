@@ -39,6 +39,7 @@ for(gene in c('MAOA','CompositeRecoded','DAT1','COMT')) {
  # this gets a bit hairy
  # "gene" at the for loop level is "COMT", "DAT1", etc
  # the "gene" as dataframe column name (eg table$COMT) is the gene type (e.g. Va/Met)
+ genelabel <- gene
  if(gene == 'COMT' ) {
    levels(table[,gene])<-rev(c("Val/Val" ,"Val/Met", "Met/Met"))
  } else if(gene == 'MAOA'){
@@ -47,6 +48,7 @@ for(gene in c('MAOA','CompositeRecoded','DAT1','COMT')) {
    levels(table[,gene])<-rev(c("10R/10R" ,"9R"))
  }else{ #COMPOSITE
    levels(table[,gene])<-rev(c("0.5" ,"1.0","1.5","2.0","2.5","3.0"))
+   genelabel <- 'Composite Score'
  }
 
  #levels(table[,genename]) <- c(1,2,3) # set the level names to something useful
@@ -55,10 +57,10 @@ for(gene in c('MAOA','CompositeRecoded','DAT1','COMT')) {
  p <- ggplot(data=table,
        aes_string(x="1/(AgeInverseCentered+1/15.36)",y="reducedCorrPercentileContiguous", group=gene,color=gene)
      ) + theme_bw()
- p <- p + ggtitle(gene) +
+ p <- p + ggtitle(genelabel) +
   geom_line()+                          # add a line
   facet_grid(PFC ~  Subcortical)+       # break up by PFC+Subcortical comparison
-  scale_color_manual(values=color)+     # set the desired colors
+  scale_color_manual(values=color,name=genelabel)+     # set the desired colors
   theme(text=element_text(size=8))+     # reduce font size everywhere to 8
   scale_y_continuous("Correlation\n(Fisher's z)")+ # y axis title
   scale_x_continuous('Age (Years)',            # x axis title

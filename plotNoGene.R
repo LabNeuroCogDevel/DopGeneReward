@@ -23,7 +23,7 @@ table <- read.table('data/AgeInverse_lmerCellMeans_reducedCorrPercentileContiguo
  p <- ggplot(data=table,
        aes_string(x="1/(AgeInverseCentered+1/15.36)",y="reducedCorrPercentileContiguous") 
      ) + theme_bw()
- p <- p + ggtitle('All Genes') +
+ p <- p + ggtitle('Age Effects') +
   geom_line()+                          # add a line
   facet_grid(PFC ~  Subcortical)+       # break up by PFC+Subcortical comparison
   scale_color_manual(values=color)+     # set the desired colors
