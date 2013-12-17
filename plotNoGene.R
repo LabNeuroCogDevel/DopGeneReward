@@ -16,7 +16,7 @@ table <- read.table('data/AgeInverse_lmerCellMeans_reducedCorrPercentileContiguo
  # [1] "Dorsal_ACC"           "InferiorFrontalGyrus" "Lateral_OFC"          "Medial_OFC"           "MiddleFrontalGyrus" 
  # [6] "SuperiorFrontalGyrus" "Ventral_ACC" 
  levels(table$PFC)<-c("dACC","IFG", "Lateral OFC",
-                      "Medial OFC", "MFG", "SFC", "vACC")
+                      "Medial OFC", "MFG", "SFG", "vACC")
 
 
  # plot

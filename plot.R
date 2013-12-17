@@ -28,7 +28,7 @@ for(gene in c('MAOA','CompositeRecoded','DAT1','COMT')) {
  # [1] "Dorsal_ACC"           "InferiorFrontalGyrus" "Lateral_OFC"          "Medial_OFC"           "MiddleFrontalGyrus" 
  # [6] "SuperiorFrontalGyrus" "Ventral_ACC" 
  levels(table$PFC)<-c("dACC","IFG", "Lateral OFC",
-                      "Medial OFC", "MFG", "SFC", "vACC")
+                      "Medial OFC", "MFG", "SFG", "vACC")
 
  # how does the table call this gene (ie. append .Genotype)
  genename <- paste( gene, '.Genotype' , sep="")
